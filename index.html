@@ -1,289 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- displays site properly based on user's device -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- displays site properly based on user's device -->
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./images/favicon-32x32.png"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Frontend Mentor | FAQ Accordion Card</title>
 
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <title>Frontend Mentor | FAQ Accordion Card</title>
+		<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+				font-family: "Kumbh Sans", sans-serif;
+			}
 
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            font-family: 'Kumbh Sans', sans-serif;
-        }
-        
-        body {
-            background-image: linear-gradient(to bottom, hsl(273, 75%, 66%), hsl(240, 73%, 65%));
-            background-repeat: no-repeat;
-            width: 100%;
-            height: 100vh;
-        }
-        
-        main {
-            background-color: white;
-            margin: 150px auto;
-            width: 800px;
-            height: 400px;
-            border-radius: 20px;
-            display: flex;
-            /* justify-content: space-between; */
-            position: relative;
-        }
-        
-        .img {
-            position: relative;
-            width: 50%;
-            overflow: hidden;
-        }
-        
-        .pattern {
-            position: absolute;
-            width: 550px;
-            height: 550px;
-            top: -70px;
-            left: -199px;
-        }
-        
-        .illustration {
-            position: absolute;
-            width: 400px;
-            top: 50px;
-            left: -67px;
-        }
-        
-        .box {
-            position: absolute;
-            width: 150px;
-            top: 175px;
-            left: -77px;
-        }
-        
-        .content {
-            padding: 40px;
-            width: 50%;
-        }
-        
-        .content h1 {
-            padding: 20px;
-            font-size: 35px;
-            color: hsl(238, 29%, 16%);
-        }
-        
-        .content p {
-            padding: 10px;
-            font-size: 13px;
-            color: hsl(237, 12%, 33%);
-            cursor: pointer;
-            transition: all .5s ease;
-        }
-        
-        .content p:hover {
-            color: hsl(14, 88%, 65%);
-        }
-        
-        .questions {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .hr {
-            width: 95%;
-            height: 1px;
-            background-color: hsl(237, 12%, 33%);
-            opacity: .2;
-            margin: auto;
-        }
-        
-        .show {
-            display: block;
-            font-size: 12px !important;
-            color: hsl(240, 6%, 50%);
-            opacity: .7;
-        }
-        
-        .show:hover {
-            font-size: 12px !important;
-            color: hsl(240, 6%, 50%) !important;
-            opacity: .7 !important;
-        }
-        
-        .content svg {
-            cursor: pointer;
-        }
-        
-        .active p {
-            color: hsl(238, 29%, 16%);
-            font-weight: 700;
-        }
-        
-        .active {
-            color: hsl(238, 29%, 16%);
-            font-weight: 700;
-        }
-        
-        p.hidden {
-            display: none;
-            font-size: 12px !important;
-            color: hsl(240, 6%, 50%);
-            opacity: .7;
-        }
-        
-        .active:hover {
-            color: hsl(238, 29%, 16%) !important;
-            font-weight: 700 !important;
-        }
-        
-        .attribution {
-            font-size: 11px;
-            text-align: center;
-        }
-        
-        .attribution a {
-            color: hsl(228, 45%, 44%);
-        }
-        
-        @media (max-width: 400px) {
-            main {
-                flex-direction: column;
-                width: 350px;
-                height: 450px;
-            }
-            .img {
-                overflow: visible;
-            }
-            .pattern {
-                position: absolute;
-                width: 240px;
-                height: 240px;
-                top: -130px;
-                left: 45px;
-            }
-            .illustration {
-                position: absolute;
-                width: 240px;
-                top: -110px;
-                left: 45px;
-            }
-            .box {
-                position: absolute;
-                width: 150px;
-                top: -40px;
-                left: 40px;
-                width: 80px;
-            }
-            .content {
-                text-align: center;
-                width: 100%;
-                padding: 20px;
-                padding-top: 100px;
-            }
-        }
-    </style>
-</head>
+			body {
+				background-image: linear-gradient(
+					to bottom,
+					hsl(273, 75%, 66%),
+					hsl(240, 73%, 65%)
+				);
+				background-repeat: no-repeat;
+				width: 100%;
+				height: 100vh;
+			}
 
-<body>
-    <main>
-        <div class="img">
-            <img class="pattern" src="./images/bg-pattern-desktop.svg" alt="">
-            <img class="illustration" src="./images/illustration-woman-online-desktop.svg" alt="">
+			main {
+				background-color: white;
+				margin: 150px auto;
+				width: 800px;
+				height: 400px;
+				border-radius: 20px;
+				display: flex;
+				/* justify-content: space-between; */
+				position: relative;
+			}
 
-        </div>
-        <img class="box" src="./images/illustration-box-desktop.svg" alt="">
-        <div class="content">
-            <h1>FQA</h1>
-            <div>
-                <div class="questions">
-                    <p id="first"> How many team members can I invite?</p>
-                    <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 .799l4 4 4-4" stroke="#F47B56" stroke-width="2" fill="none" fill-rule="evenodd"/></svg>
+			.img {
+				position: relative;
+				width: 50%;
+				overflow: hidden;
+			}
 
+			.pattern {
+				position: absolute;
+				width: 550px;
+				height: 550px;
+				top: -70px;
+				left: -199px;
+			}
 
-                </div>
-                <p class="one hidden">You can invite up to 2 additional users on the Free plan. There is no limit on team members for the Premium plan.
-                </p>
-            </div>
+			.illustration {
+				position: absolute;
+				width: 400px;
+				top: 50px;
+				left: -67px;
+			}
 
-            <div class="hr"></div>
-            <div>
-                <div class="questions">
-                    <p id="second"> What is the maximum file upload size? </p>
-                    <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 .799l4 4 4-4" stroke="#F47B56" stroke-width="2" fill="none" fill-rule="evenodd"/></svg>
+			.box {
+				position: absolute;
+				width: 150px;
+				top: 175px;
+				left: -77px;
+			}
 
+			.content {
+				padding: 40px;
+				width: 50%;
+			}
 
-                </div>
-                <p class="two  hidden">No more than 2GB. All files in your account must fit your allotted storage space.</p>
-            </div>
+			.content h1 {
+				padding: 20px;
+				font-size: 35px;
+				color: hsl(238, 29%, 16%);
+			}
 
-            <div class="hr"></div>
-            <div>
-                <div class="questions">
-                    <p id="third"> How do I reset my password?</p>
-                    <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 .799l4 4 4-4" stroke="#F47B56" stroke-width="2" fill="none" fill-rule="evenodd"/></svg>
+			.content p {
+				padding: 10px;
+				font-size: 13px;
+				color: hsl(237, 12%, 33%);
+				cursor: pointer;
+				transition: all 0.5s ease;
+			}
 
+			.content p:hover {
+				color: hsl(14, 88%, 65%);
+			}
 
-                </div>
-                <p class="three hidden"> Click “Forgot password” from the login page or “Change password” from your profile page. A reset link will be emailed to you.</p>
-            </div>
+			.questions {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
 
-            <div class="hr"></div>
-            <div>
-                <div class="questions">
-                    <p id="fourth">Can I cancel my subscription?</p>
-                    <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 .799l4 4 4-4" stroke="#F47B56" stroke-width="2" fill="none" fill-rule="evenodd"/></svg>
+			.hr {
+				width: 95%;
+				height: 1px;
+				background-color: hsl(237, 12%, 33%);
+				opacity: 0.2;
+				margin: auto;
+			}
 
+			.show {
+				display: block;
+				font-size: 12px !important;
+				color: hsl(240, 6%, 50%);
+				opacity: 0.7;
+			}
 
-                </div>
-                <p class="four hidden">Yes! Send us a message and we’ll process your request no questions asked.</p>
-            </div>
+			.show:hover {
+				font-size: 12px !important;
+				color: hsl(240, 6%, 50%) !important;
+				opacity: 0.7 !important;
+			}
 
-            <div class="hr"></div>
-            <div>
-                <div class="questions">
-                    <p id="fifth"> Do you provide additional support?</p>
-                    <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 .799l4 4 4-4" stroke="#F47B56" stroke-width="2" fill="none" fill-rule="evenodd"/></svg>
+			.content svg {
+				cursor: pointer;
+			}
 
+			.active p {
+				color: hsl(238, 29%, 16%);
+				font-weight: 700;
+			}
 
-                </div>
-                <p class="five hidden"> Chat and email support is available 24/7. Phone lines are open during normal business hours.</p>
-            </div>
+			.active {
+				color: hsl(238, 29%, 16%);
+				font-weight: 700;
+			}
 
-        </div>
-    </main>
+			p.hidden {
+				display: none;
+				font-size: 12px !important;
+				color: hsl(240, 6%, 50%);
+				opacity: 0.7;
+			}
 
+			.active:hover {
+				color: hsl(238, 29%, 16%) !important;
+				font-weight: 700 !important;
+			}
 
-    <footer class="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="https://www.frontendmentor.io/profile/Eman-Abdallah">Eman Shaltoot</a>.
-    </footer>
-    <script>
-        var acc = document.getElementsByClassName("questions");
-        var i;
+			.attribution {
+				font-size: 11px;
+				text-align: center;
+			}
 
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                /* Toggle between adding and removing the "active" class,
-                to highlight the button that controls the panel */
-                this.classList.toggle("active");
+			.attribution a {
+				color: hsl(228, 45%, 44%);
+			}
 
-                /* Toggle between hiding and showing the active panel */
-                var panel = this.nextElementSibling;
+			@media (max-width: 400px) {
+				main {
+					flex-direction: column;
+					width: 350px;
+					height: 450px;
+				}
+				.img {
+					overflow: visible;
+				}
+				.pattern {
+					position: absolute;
+					width: 240px;
+					height: 240px;
+					top: -130px;
+					left: 45px;
+				}
+				.illustration {
+					position: absolute;
+					width: 240px;
+					top: -110px;
+					left: 45px;
+				}
+				.box {
+					position: absolute;
+					width: 150px;
+					top: -40px;
+					left: 40px;
+					width: 80px;
+				}
+				.content {
+					text-align: center;
+					width: 100%;
+					padding: 20px;
+					padding-top: 100px;
+				}
+			}
+		</style>
+	</head>
 
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
-                }
-            });
-        }
-    </script>
-</body>
+	<body>
+		<main>
+			<div class="img">
+				<img class="pattern" src="./images/bg-pattern-desktop.svg" alt="" />
+				<img
+					class="illustration"
+					src="./images/illustration-woman-online-desktop.svg"
+					alt=""
+				/>
+			</div>
+			<img class="box" src="./images/illustration-box-desktop.svg" alt="" />
+			<div class="content">
+				<h1>FQA</h1>
+				<div>
+					<div class="questions">
+						<p id="first">How many team members can I invite?</p>
+						<svg width="10" height="7" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M1 .799l4 4 4-4"
+								stroke="#F47B56"
+								stroke-width="2"
+								fill="none"
+								fill-rule="evenodd"
+							/>
+						</svg>
+					</div>
+					<p class="one hidden">
+						You can invite up to 2 additional users on the Free plan. There is
+						no limit on team members for the Premium plan.
+					</p>
+				</div>
 
+				<div class="hr"></div>
+				<div>
+					<div class="questions">
+						<p id="second">What is the maximum file upload size?</p>
+						<svg width="10" height="7" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M1 .799l4 4 4-4"
+								stroke="#F47B56"
+								stroke-width="2"
+								fill="none"
+								fill-rule="evenodd"
+							/>
+						</svg>
+					</div>
+					<p class="two hidden">
+						No more than 2GB. All files in your account must fit your allotted
+						storage space.
+					</p>
+				</div>
+
+				<div class="hr"></div>
+				<div>
+					<div class="questions">
+						<p id="third">How do I reset my password?</p>
+						<svg width="10" height="7" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M1 .799l4 4 4-4"
+								stroke="#F47B56"
+								stroke-width="2"
+								fill="none"
+								fill-rule="evenodd"
+							/>
+						</svg>
+					</div>
+					<p class="three hidden">
+						Click “Forgot password” from the login page or “Change password”
+						from your profile page. A reset link will be emailed to you.
+					</p>
+				</div>
+
+				<div class="hr"></div>
+				<div>
+					<div class="questions">
+						<p id="fourth">Can I cancel my subscription?</p>
+						<svg width="10" height="7" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M1 .799l4 4 4-4"
+								stroke="#F47B56"
+								stroke-width="2"
+								fill="none"
+								fill-rule="evenodd"
+							/>
+						</svg>
+					</div>
+					<p class="four hidden">
+						Yes! Send us a message and we’ll process your request no questions
+						asked.
+					</p>
+				</div>
+
+				<div class="hr"></div>
+				<div>
+					<div class="questions">
+						<p id="fifth">Do you provide additional support?</p>
+						<svg width="10" height="7" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M1 .799l4 4 4-4"
+								stroke="#F47B56"
+								stroke-width="2"
+								fill="none"
+								fill-rule="evenodd"
+							/>
+						</svg>
+					</div>
+					<p class="five hidden">
+						Chat and email support is available 24/7. Phone lines are open
+						during normal business hours.
+					</p>
+				</div>
+			</div>
+		</main>
+
+		<footer class="attribution">
+			Challenge by
+			<a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+				>Frontend Mentor</a
+			>. Coded by
+			<a href="https://www.frontendmentor.io/profile/Eman-Abdallah"
+				>Eman Shaltoot</a
+			>.
+		</footer>
+		<script>
+			var acc = document.getElementsByClassName("questions");
+			/*  get all answers paragraph and put them in array insted of HTMLCollection 
+                so i can use array methods (forEach) */
+			var answers = [...document.getElementsByClassName("hidden")];
+			var i;
+
+			for (i = 0; i < acc.length; i++) {
+				acc[i].addEventListener("click", function () {
+					/* loop throw all answers and make hide them (display = none)
+                    must be above the active class and display block for the current item (question) */
+					console.log(answers);
+					answers.forEach((answer) => {
+						answer.style.display = "none";
+					});
+					/* Toggle between adding and removing the "active" class,
+                    to highlight the button that controls the panel */
+					this.classList.toggle("active");
+					console.log(this.parentElement);
+
+					/* Toggle between hiding and showing the active panel */
+					var panel = this.nextElementSibling;
+
+					if (panel.style.display === "block") {
+						panel.style.display = "none";
+					} else {
+						panel.style.display = "block";
+					}
+				});
+			}
+		</script>
+	</body>
 </html>
